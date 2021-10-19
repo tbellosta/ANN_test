@@ -13,14 +13,14 @@ message(STATUS "Build type: ${CMAKE_BUILD_TYPE}")
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 set(CMAKE_CXX_FLAGS_DEBUG "-g")
-set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -Ofast -mtune=native -funroll-loops")
+set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O3 -mtune=native -funroll-loops")
 
 # -------------------------------------------------------------------------------------- Setup paths
 set(ROOT_DIR ${CMAKE_CURRENT_SOURCE_DIR})
 set(BIN_DIR ${ROOT_DIR}/bin)
 set(INC_DIR ${ROOT_DIR}/include)
 set(SRC_DIR ${ROOT_DIR}/src)
-set(LIB_DIR ${ROOT_DIR}/../ANN)
+set(LIB_DIR ${ROOT_DIR}/../ANN_threadsafe)
 set(EXEC_DIR ${ROOT_DIR}/tools)
 
 # -------------------------------------------------------------------------------------- Source files
@@ -37,7 +37,7 @@ link_directories(${LIB_DIR}/lib)
 
 # -------------------------------------------------------------------------------------- Linking and libraries
 set(LIBS libANN.a)
-find_package(OPENMP REQUIRED)
+find_package(OpenMP REQUIRED)
 
 # -------------------------------------------------------------------------------------- Find LAPACK
 

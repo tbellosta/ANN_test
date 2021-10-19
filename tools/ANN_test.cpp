@@ -15,6 +15,7 @@
 #include "test.h"
 #include <iostream>
 #include <omp.h>
+#include <assert.h>
 
 int main() {
 
